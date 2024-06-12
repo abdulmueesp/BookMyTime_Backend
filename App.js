@@ -4,12 +4,13 @@ const cors=require("cors")
 const Dbconnection=require("./Config/database")
 const port=4500;
 Dbconnection().then(()=>{
-app.listen(port,()=>{
-    console.log("server is starting");
-})
-}).catch((error)=>{
-    console.error(error)
-});
+    app.listen(port,()=>{
+        console.log("server is starting");
+    })
+    }).catch((error)=>{
+        console.error(error)
+    });
+
 
 //  routers 
 const userRouter =require("./Router/userRouter")
@@ -27,7 +28,6 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json());
 app.use(cors(corsOptions))
 app.use("/",userRouter)
-
 
 
 
