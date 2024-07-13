@@ -14,11 +14,13 @@ Dbconnection().then(()=>{
 
 //  routers 
 const userRouter =require("./Router/userRouter")
+const adminRouter =require("./Router/adminRouter")
+const ownerRouter = require("./Router/ownerRouter")
 
 
 
 const corsOptions={
-    origin:"http://localhost:5173/",
+    origin:"http://localhost:4000",
     maxAge:86400,
 }
 
@@ -28,7 +30,8 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json());
 app.use(cors(corsOptions))
 app.use("/",userRouter)
-
+app.use("/admin",adminRouter)
+app.use("/owner",ownerRouter)
 
 
 
